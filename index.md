@@ -5,4 +5,4 @@ description: Home Page
 hide: true
 ---
 
-Manas journey starts here.
+Manas journey starts here - Kickin Projects
