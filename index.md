@@ -1,13 +1,16 @@
 ---
 layout: base
-title: Student Home 
-description: Home Page
-hide: true
+title: Course Descriptions
+description: An overview of Computer Science pathway at Del Norte High School
+author: Manas Goel
+image: /images/mario_animation.png
+hide: false
 ---
 
 <!-- Liquid:  statements -->
 
 <!-- Include submenu from _includes to top of pages -->
+{% include nav/home.html %}
 <!--- Concatenation of site URL to frontmatter image  --->
 {% assign sprite_file = site.baseurl | append: page.image %}
 <!--- Has is a list variable containing mario metadata for sprite --->
@@ -187,5 +190,8 @@ hide: true
   });
 
 </script>
+## Manas Goel
+## Investing in Your Technical Future
 
-##Manas Goel
+> Explore the Computer Science Pathway at Del Norte High School and invest in your technical skills. All Del Norte CompSci classes are designed to provide a real-world development experience. Class time includes tech talks (lectures), peer collaboration, communication with teachers, critical thinking while coding, and creativity in projects. Grading is focused on time invested, participation with peers, and engagement in learning.
+
