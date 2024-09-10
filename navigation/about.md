@@ -63,9 +63,11 @@ permalink: /about/
         list-style-type: disc;
         margin-left: 20px;
     }
-    /* Styling for gallery and buttons */
+     /* Styling for gallery and buttons */
     .image-gallery img {
         max-width: 100%;
+        height: 300px; /* Ensures uniform image height */
+        object-fit: cover; /* Ensures the image fits within the container */
         display: block;
         margin: 0 auto;
     }
