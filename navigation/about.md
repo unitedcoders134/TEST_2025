@@ -7,8 +7,8 @@ permalink: /about/
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f0f8ff;
-        color: #000;
+        background-color: #FFFFFF;
+        color: #FFFFFF;
         margin: 20px;
         line-height: 1.6;
     }
@@ -44,8 +44,8 @@ permalink: /about/
         font-style: italic;
     }
     .family-section {
-        background-color: #333;
-        color: #333;
+        background-color: #FFFFFF;
+        color: #000000; /* Changed text color to black */
         padding: 20px;
         border-radius: 8px;
         margin-top: 20px;
@@ -62,6 +62,27 @@ permalink: /about/
     ul {
         list-style-type: disc;
         margin-left: 20px;
+    }
+    /* Styling for gallery and buttons */
+    .image-gallery img {
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+    .button-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+    button {
+        background-color: #007acc;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #005fa3;
     }
 </style>
 
@@ -87,8 +108,63 @@ permalink: /about/
         <ul>
             <li>My dad has been working in the tech industry for over 20 years and has been with Qualcomm for the past 13 years.</li>
             <li>My mom has been in the pharma domain for over 20 years.</li>
-            <li>My sister is a business major at UCSD.</li>
+            <li>My sister is a business major at UCSD. (That was the reason we moved).</li>
         </ul>
-        <img src="images/familyphoto.jpg" alt="Family Photo">
     </div>
+
+    <!-- Theme switcher button -->
+    <div class="button-container">
+        <button id="theme-switcher">Switch Theme</button>
+    </div>
+
+    <script>
+        // Function to toggle between light and dark theme
+        const themeSwitcher = document.getElementById('theme-switcher');
+        let isDarkTheme = true;
+
+        themeSwitcher.addEventListener('click', function() {
+            if (isDarkTheme) {
+                document.body.style.backgroundColor = "#f0f0f0";  // Light theme background
+                document.body.style.color = "#000000";  // Light theme text color
+                document.querySelector('.container').style.backgroundColor = "#ffffff";  // Light theme container
+                isDarkTheme = false;
+            } else {
+                document.body.style.backgroundColor = "#000000";  // Dark theme background
+                document.body.style.color = "#ffffff";  // Dark theme text color
+                document.querySelector('.container').style.backgroundColor = "#000000";  // Dark theme container
+                isDarkTheme = true;
+            }
+        });
+    </script>
+
+    <!-- Image gallery -->
+    <div class="image-gallery">
+        <img id="gallery-image" src="{{site.baseurl}}/images/about/missionary.jpg" alt="Image 1">
+    </div>
+    <div class="button-container">
+        <button id="next-btn">Next</button>
+    </div>
+
+    <script>
+        // Array of image sources
+        const images = [
+            "{{site.baseurl}}/images/bike.jpg",
+            "{{site.baseurl}}/images/familyphoto.jpg",
+            "{{site.baseurl}}/images/cologne.jpg",
+            "{{site.baseurl}}/images/fam.jpg",
+        ];
+
+        let currentIndex = 0;
+
+        // Function to display the next image
+        const nextBtn = document.getElementById('next-btn');
+        const galleryImage = document.getElementById('gallery-image');
+
+        nextBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % images.length;  // Increment index and loop back to start
+            galleryImage.src = images[currentIndex];  // Change the image source
+        });
+    </script>
+
 </div>
+
