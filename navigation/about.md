@@ -116,6 +116,7 @@ permalink: /about/
 
     <!-- Theme switcher button -->
     <div class="button-container">
+    <p>You can change the theme to your liking! If you like dark mode or light mode, you pick!!</p>
         <button id="theme-switcher">Switch Theme</button>
     </div>
 
@@ -140,33 +141,44 @@ permalink: /about/
     </script>
 
     <!-- Image gallery -->
+    <h2>Here's a sneak peek into my life!!!</h2>
     <div class="image-gallery">
         <img id="gallery-image" src="{{site.baseurl}}/images/about/missionary.jpg" alt="Image 1">
     </div>
-    <div class="button-container">
-        <button id="next-btn">Next</button>
-    </div>
-
-    <script>
-        // Array of image sources
-        const images = [
-            "{{site.baseurl}}/images/bike.jpg",
-            "{{site.baseurl}}/images/familyphoto.jpg",
-            "{{site.baseurl}}/images/cologne.jpg",
-            "{{site.baseurl}}/images/fam.jpg",
-        ];
-
-        let currentIndex = 0;
-
-        // Function to display the next image
-        const nextBtn = document.getElementById('next-btn');
-        const galleryImage = document.getElementById('gallery-image');
-
-        nextBtn.addEventListener('click', function() {
-            currentIndex = (currentIndex + 1) % images.length;  // Increment index and loop back to start
-            galleryImage.src = images[currentIndex];  // Change the image source
-        });
-    </script>
-
+   <div class="button-container">
+   <button id="next-btn">Next</button>
+    <button id="prev-btn">Previous</button>
+    
 </div>
+
+<script>
+    // Array of image sources
+    const images = [
+        "{{site.baseurl}}/images/bike.jpg",
+        "{{site.baseurl}}/images/familyphoto.jpg",
+        "{{site.baseurl}}/images/cologne.jpg",
+        "{{site.baseurl}}/images/fam.jpg",
+        "{{site.baseurl}}/images/universal.jpg",
+        "{{site.baseurl}}/images/fat.jpg",
+    ];
+
+    let currentIndex = 0;
+
+    const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const galleryImage = document.getElementById('gallery-image');
+
+    // Function to display the next image
+    nextBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex + 1) % images.length;  // Increment index and loop back to start
+        galleryImage.src = images[currentIndex];  // Change the image source
+    });
+
+    // Function to display the previous image
+    prevBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;  // Decrement index and loop back to end if necessary
+        galleryImage.src = images[currentIndex];  // Change the image source
+    });
+</script>
+
 
