@@ -146,8 +146,9 @@ permalink: /about/
         <img id="gallery-image" src="{{site.baseurl}}/images/about/missionary.jpg" alt="Image 1">
     </div>
    <div class="button-container">
+   <button id="prev-btn">Previous</button>
    <button id="next-btn">Next</button>
-    <button id="prev-btn">Previous</button>
+    
     
 </div>
 
