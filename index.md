@@ -6,6 +6,8 @@ author: Manas Goel
 image: /images/mario_animation.png
 hide: false
 ---
+ 
+ {% include nav/home.html %}
 
 <style>
     body {
@@ -74,6 +76,6 @@ hide: false
 </script>
 
 ## Manas Goel
- 
+
 Cannot wait to learn how to make a better game!
 
