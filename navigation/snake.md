@@ -4,14 +4,42 @@ title: Snake
 permalink: /snake/
 ---
 
- {% include nav/home.html %}
-
-Future home of snake game 
+{% include nav/home.html %}
 
 <style>
+    body.light-theme {
+        background-color: white;
+        color: black;
+    }
+
+    body.dark-theme {
+        background-color: #333;
+        color: white;
+    }
+
+    body.blue-theme {
+        background-color: #007acc;
+        color: white;
+    }
+
+    body.red-theme {
+        background-color: #ff4c4c;
+        color: white;
+    }
+
+    body.green-theme {
+        background-color: #28a745;
+        color: white;
+    }
+
+    body.grey-theme {
+        background-color: #aaa;
+        color: white;
+    }
+
     canvas {
         border: 1px solid #000;
-        background-color: #fff;
+        background-color: white;
     }
 
     #game-over {
@@ -20,11 +48,38 @@ Future home of snake game
         text-align: center;
         display: none;
     }
+
+    .button-container {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .button-container button {
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #007acc;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .button-container button:hover {
+        background-color: #005fa3;
+    }
 </style>
 
 <h1 id="game-over">Game Over!</h1>
 
 <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+<!-- Buttons for controlling the game -->
+<div class="button-container">
+    <button id="slow-btn">Slow Mode</button>
+    <button id="fast-btn">Fast Mode</button>
+    <button id="wall-btn">Wall On/Off</button>
+    <button id="theme-btn">Switch Theme</button>
+</div>
 
 <script>
     const canvas = document.getElementById("gameCanvas");
@@ -48,6 +103,10 @@ Future home of snake game
 
     // Score
     let score = 0;
+
+    // Speed variables
+    let speed = 100;
+    let wallOn = true;
 
     // Control the snake with keyboard
     document.addEventListener("keydown", changeDirection);
@@ -115,9 +174,25 @@ Future home of snake game
         };
 
         // Game over conditions
-        if (snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height || collision(newHead, snake)) {
-            document.getElementById("game-over").style.display = "block";
-            clearInterval(game);
+        if (wallOn) {
+            if (snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height || collision(newHead, snake)) {
+                document.getElementById("game-over").style.display = "block";
+                clearInterval(game);
+            }
+        } else {
+            // Wrap the snake around the canvas
+            if (snakeX < 0) {
+                snakeX = canvas.width - box;
+            }
+            if (snakeX >= canvas.width) {
+                snakeX = 0;
+            }
+            if (snakeY < 0) {
+                snakeY = canvas.height - box;
+            }
+            if (snakeY >= canvas.height) {
+                snakeY = 0;
+            }
         }
 
         snake.unshift(newHead);
@@ -128,6 +203,40 @@ Future home of snake game
         ctx.fillText("Score: " + score, 10, 30);
     }
 
-    // Call draw function every 100ms
-    let game = setInterval(draw, 100);
+    // Control speed of the game
+    let game = setInterval(draw, speed);
+
+    // Button functionality
+    document.getElementById("slow-btn").addEventListener("click", function() {
+        clearInterval(game);
+        speed = 200;  // Slow mode speed
+        game = setInterval(draw, speed);
+    });
+
+    document.getElementById("fast-btn").addEventListener("click", function() {
+        clearInterval(game);
+        speed = 50;  // Fast mode speed
+        game = setInterval(draw, speed);
+    });
+
+    document.getElementById("wall-btn").addEventListener("click", function() {
+        wallOn = !wallOn;  // Toggle wall on/off
+    });
+
+    // Theme switching functionality
+    const themes = ['light-theme', 'dark-theme', 'blue-theme', 'red-theme', 'green-theme', 'grey-theme'];
+    let currentTheme = 0;
+
+    document.getElementById("theme-btn").addEventListener("click", function() {
+        // Remove the current theme class
+        document.body.classList.remove(themes[currentTheme]);
+        
+        // Move to the next theme
+        currentTheme = (currentTheme + 1) % themes.length;
+        
+        // Apply the new theme
+        document.body.classList.add(themes[currentTheme]);
+    });
 </script>
+
+
