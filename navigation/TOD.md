@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Ideas
-permalink: /ideas/
+title: TOD
+permalink: /TOD/
 ---
 
  {% include nav/home.html %}
@@ -10,7 +10,7 @@ This is my idea for my new game!
 
 <style>
     body {
-        font-family: Arial, sans-serif;
+        font-family: Arial, sansx-serif;
         background-color: #f0f0f0;
         color: #333;
         text-align: center;
