@@ -1,7 +1,7 @@
 ---
 layout: page
-title: WPM Typing Game
-permalink: /wpm-typing-game/
+title: Typing Game
+permalink: /WPM/
 ---
 
 <style>
