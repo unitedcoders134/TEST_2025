@@ -86,6 +86,11 @@ permalink: /about/
     button:hover {
         background-color: #005fa3;
     }
+    /* Remove dead space above the family section */
+    .family-section {
+        margin-top: 0;
+        padding-top: 40px; /* Keep some padding for visual separation */
+    }
 </style>
 
 <div class="container">
@@ -181,5 +186,3 @@ permalink: /about/
         galleryImage.src = images[currentIndex];  // Change the image source
     });
 </script>
-
-

@@ -136,10 +136,10 @@ permalink: /snake/
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Draw snake
+        // Draw snake with emoji
         for (let i = 0; i < snake.length; i++) {
-            ctx.fillStyle = i == 0 ? "green" : "lightgreen";
-            ctx.fillRect(snake[i].x, snake[i].y, box, box);
+            ctx.font = "20px Arial";  // Set font size to match the grid
+            ctx.fillText("🐍", snake[i].x, snake[i].y + box);  // Adjust the y-offset slightly for better alignment
         }
 
         // Draw food
@@ -238,5 +238,6 @@ permalink: /snake/
         document.body.classList.add(themes[currentTheme]);
     });
 </script>
+
 
 
