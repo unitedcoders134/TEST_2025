@@ -12,6 +12,8 @@ permalink: /about/
         margin: 0;
         padding: 0;
         line-height: 1.6;
+        transition: background-color 0.5s, color 0.5s;
+        scroll-behavior: smooth; /* For smooth scrolling */
     }
 
     .container {
@@ -20,24 +22,50 @@ permalink: /about/
         padding: 10px;
         background-color: #000;
         border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease-in-out;
     }
 
+    .container:hover {
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Typing animation for header */
     h1 {
         text-align: center;
         color: #007acc;
-        margin-top: 0; /* Remove extra space above header */
-        margin-bottom: 10px; /* Reduce space below the header */
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 2.5em;
+        border-right: 2px solid #007acc;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: typing 3s steps(22) 1s 1 normal both, blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+        from, to { border-color: transparent; }
+        50% { border-color: #007acc; }
     }
 
     .flags {
         text-align: center;
-        margin: 10px 0; /* Reduce margin to avoid extra space */
+        margin: 10px 0;
     }
 
     .flags img {
         width: 100px;
         margin: 5px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .flags img:hover {
+        transform: scale(1.1) rotate(10deg);
     }
 
     .bike-emoji {
@@ -49,37 +77,53 @@ permalink: /about/
         color: white;
         padding: 10px;
         border-radius: 5px;
-        margin-top: 10px; /* Reduce margin */
+        margin-top: 10px;
         font-style: italic;
+        position: relative;
+        overflow: hidden;
+        transition: background-color 0.5s ease;
+    }
+
+    .fun-facts::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: skewX(-45deg);
+        transition: left 0.5s;
+    }
+
+    .fun-facts:hover::before {
+        left: 100%;
     }
 
     .family-section {
         background-color: #FFFFFF;
-        color: #000000; /* Black text for better readability */
+        color: #000000;
         padding: 10px;
         border-radius: 8px;
-        margin-top: 10px; /* Reduce margin to eliminate dead space */
+        margin-top: 10px;
         border: 1px solid #007acc;
+        animation: slideInUp 1s;
     }
 
     .family-section h2 {
         color: #007acc;
-        margin-top: 0; /* Remove extra space above the title */
+        margin-top: 0;
+        transition: color 0.3s ease;
     }
 
-    .family-section ul {
-        margin-left: 20px;
+    .family-section h2:hover {
+        color: #005fa3;
     }
 
-    ul {
-        list-style-type: disc;
-        margin: 10px 0; /* Reduced margins around lists */
-        padding-left: 20px; /* Standard indentation */
-    }
-
-    /* Styling for gallery and buttons */
     .image-gallery {
-        margin-top: 20px; /* Keep consistent space for gallery */
+        margin-top: 20px;
+        animation: zoomIn 1s;
+        perspective: 1000px; /* Add depth for 3D effect */
     }
 
     .image-gallery img {
@@ -88,11 +132,18 @@ permalink: /about/
         object-fit: cover;
         display: block;
         margin: 0 auto;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+        transform-style: preserve-3d;
+    }
+
+    .image-gallery img:hover {
+        transform: scale(1.05) rotateY(10deg);
     }
 
     .button-container {
         text-align: center;
-        margin-top: 10px; /* Reduce spacing around buttons */
+        margin-top: 10px;
     }
 
     button {
@@ -102,10 +153,45 @@ permalink: /about/
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 0 10px rgba(0, 122, 204, 0.5);
     }
 
     button:hover {
         background-color: #005fa3;
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(0, 122, 204, 0.8);
+    }
+
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes zoomIn {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Parallax effect for the body background */
+    body {
+        background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 </style>
 
@@ -142,20 +228,19 @@ permalink: /about/
     </div>
 
     <script>
-        // Function to toggle between light and dark theme
         const themeSwitcher = document.getElementById('theme-switcher');
         let isDarkTheme = true;
 
         themeSwitcher.addEventListener('click', function() {
             if (isDarkTheme) {
-                document.body.style.backgroundColor = "#f0f0f0";  // Light theme background
-                document.body.style.color = "#000000";  // Light theme text color
-                document.querySelector('.container').style.backgroundColor = "#ffffff";  // Light theme container
+                document.body.style.backgroundColor = "#f0f0f0";
+                document.body.style.color = "#000000";
+                document.querySelector('.container').style.backgroundColor = "#ffffff";
                 isDarkTheme = false;
             } else {
-                document.body.style.backgroundColor = "#000000";  // Dark theme background
-                document.body.style.color = "#ffffff";  // Dark theme text color
-                document.querySelector('.container').style.backgroundColor = "#000000";  // Dark theme container
+                document.body.style.backgroundColor = "#000000";
+                document.body.style.color = "#ffffff";
+                document.querySelector('.container').style.backgroundColor = "#000000";
                 isDarkTheme = true;
             }
         });
@@ -173,7 +258,6 @@ permalink: /about/
     </div>
 
     <script>
-        // Array of image sources
         const images = [
             "{{site.baseurl}}/images/bike.jpg",
             "{{site.baseurl}}/images/familyphoto.jpg",
@@ -191,13 +275,11 @@ permalink: /about/
         const prevBtn = document.getElementById('prev-btn');
         const galleryImage = document.getElementById('gallery-image');
 
-        // Function to display the next image
         nextBtn.addEventListener('click', function() {
             currentIndex = (currentIndex + 1) % images.length;
             galleryImage.src = images[currentIndex];
         });
 
-        // Function to display the previous image
         prevBtn.addEventListener('click', function() {
             currentIndex = (currentIndex - 1 + images.length) % images.length;
             galleryImage.src = images[currentIndex];
@@ -212,4 +294,5 @@ permalink: /about/
         async>
     </script>
 </div>
+
 
