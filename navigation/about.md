@@ -293,6 +293,112 @@ permalink: /about/
         crossorigin="anonymous"
         async>
     </script>
+
+<!-- Chatbot Container -->
+<div class="chatbot-container">
+    <div id="chatbot-box" style="background-color: #333; color: white; padding: 20px; border-radius: 8px; max-width: 400px; margin: 20px auto;">
+        <div id="chatbot-messages" style="height: 200px; overflow-y: auto; margin-bottom: 10px; border: 1px solid #555; padding: 10px; border-radius: 5px;">
+            <div>Chatbot: Hi! I'm your virtual assistant. How can I help you today?</div>
+        </div>
+        <input type="text" id="chatbot-input" placeholder="Ask me anything..." style="width: 75%; padding: 10px; border-radius: 5px; border: 1px solid #555;">
+        <button id="chatbot-send" style="padding: 10px; background-color: #007acc; color: white; border: none; border-radius: 5px;">Send</button>
+    </div>
 </div>
+
+<script>
+    const chatbotMessages = document.getElementById('chatbot-messages');
+    const chatbotInput = document.getElementById('chatbot-input');
+    const chatbotSend = document.getElementById('chatbot-send');
+
+    chatbotSend.addEventListener('click', function() {
+        const userMessage = chatbotInput.value;
+        if (!userMessage) return;
+
+        // Display user message
+        const userMsgElement = document.createElement('div');
+        userMsgElement.textContent = "You: " + userMessage;
+        chatbotMessages.appendChild(userMsgElement);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+        // Clear input
+        chatbotInput.value = '';
+
+        // Response logic
+        let botResponse = "I'm not sure I understand that.";
+
+        const lowerCaseMsg = userMessage.toLowerCase();
+
+        // Adding a variety of responses for different keywords
+        if (lowerCaseMsg.includes("hello") || lowerCaseMsg.includes("hi")) {
+            botResponse = "Hello! How's your day going?";
+        } else if (lowerCaseMsg.includes("bike")) {
+            botResponse = "You seem to love bikes! What's your favorite route to ride on?";
+        } else if (lowerCaseMsg.includes("computer")) {
+            botResponse = "Computers are fascinating! Do you prefer coding or building them?";
+        } else if (lowerCaseMsg.includes("family")) {
+            botResponse = "Family is everything. How do you like spending time with yours?";
+        } else if (lowerCaseMsg.includes("coding") || lowerCaseMsg.includes("programming")) {
+            botResponse = "Coding is like solving puzzles! What's your favorite language to code in?";
+        } else if (lowerCaseMsg.includes("python")) {
+            botResponse = "Python is a great choice for automation, data science, and more. Do you enjoy working with it?";
+        } else if (lowerCaseMsg.includes("javascript")) {
+            botResponse = "JavaScript makes the web come alive! Any favorite projects you’ve worked on?";
+        } else if (lowerCaseMsg.includes("biking")) {
+            botResponse = "Biking keeps you fit and clears your mind! What's your best biking memory?";
+        } else if (lowerCaseMsg.includes("california")) {
+            botResponse = "California is so diverse, from beaches to mountains! What's your favorite spot?";
+        } else if (lowerCaseMsg.includes("india")) {
+            botResponse = "India has such a rich history and culture. Do you miss Bangalore?";
+        } else if (lowerCaseMsg.includes("school") || lowerCaseMsg.includes("study")) {
+            botResponse = "School can be challenging, but rewarding! What's your favorite subject?";
+        } else if (lowerCaseMsg.includes("hobby")) {
+            botResponse = "Hobbies are a great way to unwind. What's one hobby you can't live without?";
+        } else if (lowerCaseMsg.includes("music")) {
+            botResponse = "Music makes everything better! Who’s your favorite artist or band?";
+        } else if (lowerCaseMsg.includes("movie")) {
+            botResponse = "Movies can transport us to another world. What’s your favorite genre?";
+        } else if (lowerCaseMsg.includes("travel")) {
+            botResponse = "Traveling expands your horizons! Is there a dream destination on your list?";
+        } else if (lowerCaseMsg.includes("sports")) {
+            botResponse = "Sports are fun! Which one do you like playing or watching?";
+        } else if (lowerCaseMsg.includes("football")) {
+            botResponse = "Football is exciting! Do you play or just enjoy watching it?";
+        } else if (lowerCaseMsg.includes("coding project")) {
+            botResponse = "I'd love to hear more about your coding projects. What are you working on?";
+        } else if (lowerCaseMsg.includes("workout") || lowerCaseMsg.includes("gym")) {
+            botResponse = "Staying fit is so important! What’s your workout routine like?";
+        } else if (lowerCaseMsg.includes("exercise")) {
+            botResponse = "Exercise keeps the mind and body sharp! Do you have a favorite exercise?";
+        } else if (lowerCaseMsg.includes("food")) {
+            botResponse = "Food is love! What's your favorite dish to eat or cook?";
+        } else if (lowerCaseMsg.includes("book")) {
+            botResponse = "Books are a portal to different worlds! Do you have a favorite author or book?";
+        } else if (lowerCaseMsg.includes("game")) {
+            botResponse = "Games are a great way to unwind! What games are you into right now?";
+        } else if (lowerCaseMsg.includes("fun fact")) {
+            botResponse = "Did you know honey never spoils? What's your favorite random fact?";
+        } else if (lowerCaseMsg.includes("weather")) {
+            botResponse = "The weather can really set the mood! What's it like outside today?";
+        } else if (lowerCaseMsg.includes("advice")) {
+            botResponse = "I'm happy to help! What do you need advice on?";
+        } else if (lowerCaseMsg.includes("thanks") || lowerCaseMsg.includes("thank you")) {
+            botResponse = "You're welcome! Happy to help.";
+        } else if (lowerCaseMsg.includes("bye")) {
+            botResponse = "Goodbye! Chat with me anytime you like!";
+        } else if (lowerCaseMsg.includes("joke")) {
+            botResponse = "Why don't scientists trust atoms? Because they make up everything!";
+        } else if (lowerCaseMsg.includes("time")) {
+            botResponse = `It's ${new Date().toLocaleTimeString()} right now!`;
+        } else if (lowerCaseMsg.includes("day")) {
+            botResponse = `It's ${new Date().toLocaleDateString()} today!`;
+        }
+
+        // Display bot response
+        const botMsgElement = document.createElement('div');
+        botMsgElement.textContent = "Chatbot: " + botResponse;
+        chatbotMessages.appendChild(botMsgElement);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    });
+</script>
 
 
