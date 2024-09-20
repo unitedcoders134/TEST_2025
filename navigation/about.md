@@ -148,7 +148,7 @@ permalink: /about/
     <!-- Image gallery -->
     <h2>Here's a sneak peek into my life!!!</h2>
     <div class="image-gallery">
-        <img id="gallery-image" src="{{site.baseurl}}/images/about/missionary.jpg" alt="Image 1">
+        <img id="gallery-image" src="{{site.baseurl}}/images/gallery.jpg" alt="Main Image">
     </div>
    <div class="button-container">
    <button id="prev-btn">Previous</button>
