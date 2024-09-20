@@ -9,72 +9,92 @@ permalink: /about/
         font-family: Arial, sans-serif;
         background-color: #FFFFFF;
         color: #FFFFFF;
-        margin: 20px;
+        margin: 0;
+        padding: 0;
         line-height: 1.6;
     }
+
     .container {
         max-width: 800px;
         margin: 0 auto;
-        padding: 20px;
+        padding: 10px;
         background-color: #000;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
     h1 {
         text-align: center;
         color: #007acc;
+        margin-top: 0; /* Remove extra space above header */
+        margin-bottom: 10px; /* Reduce space below the header */
     }
+
     .flags {
         text-align: center;
-        margin-top: 20px;
+        margin: 10px 0; /* Reduce margin to avoid extra space */
     }
+
     .flags img {
         width: 100px;
-        margin: 10px;
+        margin: 5px;
     }
+
     .bike-emoji {
         font-size: 2em;
     }
+
     .fun-facts {
         background-color: #007acc;
         color: white;
         padding: 10px;
         border-radius: 5px;
-        margin-top: 20px;
+        margin-top: 10px; /* Reduce margin */
         font-style: italic;
     }
+
     .family-section {
         background-color: #FFFFFF;
-        color: #000000; /* Changed text color to black */
-        padding: 20px;
+        color: #000000; /* Black text for better readability */
+        padding: 10px;
         border-radius: 8px;
-        margin-top: 20px;
+        margin-top: 10px; /* Reduce margin to eliminate dead space */
         border: 1px solid #007acc;
     }
+
     .family-section h2 {
         color: #007acc;
+        margin-top: 0; /* Remove extra space above the title */
     }
-    .family-section img {
-        width: 150px;
-        border-radius: 50%;
-        margin: 10px 0;
-    }
-    ul {
-        list-style-type: disc;
+
+    .family-section ul {
         margin-left: 20px;
     }
-     /* Styling for gallery and buttons */
+
+    ul {
+        list-style-type: disc;
+        margin: 10px 0; /* Reduced margins around lists */
+        padding-left: 20px; /* Standard indentation */
+    }
+
+    /* Styling for gallery and buttons */
+    .image-gallery {
+        margin-top: 20px; /* Keep consistent space for gallery */
+    }
+
     .image-gallery img {
         max-width: 100%;
-        height: 300px; /* Ensures uniform image height */
-        object-fit: cover; /* Ensures the image fits within the container */
+        height: 300px;
+        object-fit: cover;
         display: block;
         margin: 0 auto;
     }
+
     .button-container {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 10px; /* Reduce spacing around buttons */
     }
+
     button {
         background-color: #007acc;
         color: white;
@@ -83,13 +103,9 @@ permalink: /about/
         border-radius: 5px;
         cursor: pointer;
     }
+
     button:hover {
         background-color: #005fa3;
-    }
-    /* Remove dead space above the family section */
-    .family-section {
-        margin-top: 0;
-        padding-top: 40px; /* Keep some padding for visual separation */
     }
 </style>
 
@@ -121,7 +137,7 @@ permalink: /about/
 
     <!-- Theme switcher button -->
     <div class="button-container">
-    <p>You can change the theme to your liking! If you like dark mode or light mode, you pick!!</p>
+        <p>You can change the theme to your liking! If you like dark mode or light mode, you pick!!</p>
         <button id="theme-switcher">Switch Theme</button>
     </div>
 
@@ -150,47 +166,50 @@ permalink: /about/
     <div class="image-gallery">
         <img id="gallery-image" src="{{site.baseurl}}/images/gallery.jpg" alt="Main Image">
     </div>
-   <div class="button-container">
-   <button id="prev-btn">Previous</button>
-   <button id="next-btn">Next</button>
-    
-    
-</div>
 
-<script>
-    // Array of image sources
-    const images = [
-        "{{site.baseurl}}/images/bike.jpg",
-        "{{site.baseurl}}/images/familyphoto.jpg",
-        "{{site.baseurl}}/images/cologne.jpg",
-        "{{site.baseurl}}/images/fam.jpg",
-        "{{site.baseurl}}/images/universal.jpg",
-        "{{site.baseurl}}/images/fat.jpg",
-    ];
+    <div class="button-container">
+        <button id="prev-btn">Previous</button>
+        <button id="next-btn">Next</button>
+    </div>
 
-    let currentIndex = 0;
+    <script>
+        // Array of image sources
+        const images = [
+            "{{site.baseurl}}/images/bike.jpg",
+            "{{site.baseurl}}/images/familyphoto.jpg",
+            "{{site.baseurl}}/images/cologne.jpg",
+            "{{site.baseurl}}/images/fam.jpg",
+            "{{site.baseurl}}/images/universal.jpg",
+            "{{site.baseurl}}/images/fat.jpg",
+            "{{site.baseurl}}/images/wheelie.jpg",
+            "{{site.baseurl}}/images/wheelie2.jpg",
+        ];
 
-    const nextBtn = document.getElementById('next-btn');
-    const prevBtn = document.getElementById('prev-btn');
-    const galleryImage = document.getElementById('gallery-image');
+        let currentIndex = 0;
 
-    // Function to display the next image
-    nextBtn.addEventListener('click', function() {
-        currentIndex = (currentIndex + 1) % images.length;  // Increment index and loop back to start
-        galleryImage.src = images[currentIndex];  // Change the image source
-    });
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const galleryImage = document.getElementById('gallery-image');
 
-    // Function to display the previous image
-    prevBtn.addEventListener('click', function() {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;  // Decrement index and loop back to end if necessary
-        galleryImage.src = images[currentIndex];  // Change the image source
-    });
-</script>
+        // Function to display the next image
+        nextBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            galleryImage.src = images[currentIndex];
+        });
 
-<script src="https://utteranc.es/client.js"
+        // Function to display the previous image
+        prevBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            galleryImage.src = images[currentIndex];
+        });
+    </script>
+
+    <script src="https://utteranc.es/client.js"
         repo="manas12709/manas_2025"
         issue-term="pathname"
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script>
+    </script>
+</div>
+
