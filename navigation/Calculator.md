@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Complex Calculator
+title: Calculator
 permalink: /Calculator/
 ---
 
@@ -37,26 +37,42 @@ permalink: /Calculator/
         color: white;
     }
 
+    .theme-button {
+        margin: 5px;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+    }
+
+    .theme-button:hover {
+        opacity: 0.8;
+    }
+
     .calculator {
         width: 400px;
         margin: 50px auto;
         padding: 20px;
         border: 2px solid #007acc;
         border-radius: 10px;
-        background-color: white;
+        background: linear-gradient(145deg, #e6e6e6, #ffffff);
+        box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
     }
 
     .display {
         width: 100%;
         height: 50px;
-        background-color: #f4f4f4;
+        background-color: #f9f9f9;
         border: 1px solid #ddd;
         border-radius: 5px;
-        margin-bottom: 10px;
-        font-size: 1.5em;
+        margin-bottom: 15px;
+        font-size: 1.7em;
         text-align: right;
-        padding-right: 10px;
+        padding-right: 15px;
         line-height: 50px;
+        box-shadow: inset 3px 3px 6px #cacaca, inset -3px -3px 6px #ffffff;
     }
 
     .button-container {
@@ -70,20 +86,42 @@ permalink: /Calculator/
         background-color: #007acc;
         color: white;
         border: none;
-        border-radius: 5px;
+        border-radius: 10px;
         font-size: 1.2em;
         cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 3px 3px 6px #aaa, -3px -3px 6px #fff;
     }
 
     .button-container button:hover {
         background-color: #005fa3;
+        transform: translateY(-3px);
     }
 
     .wide-button {
         grid-column: span 2;
     }
 
+    .scientific-button-container {
+        margin-top: 15px;
+        grid-gap: 10px;
+    }
+
+    .theme-selector {
+        text-align: center;
+        margin: 20px;
+    }
+
 </style>
+
+<div class="theme-selector">
+    <button class="theme-button" onclick="switchTheme('light-theme')">Light</button>
+    <button class="theme-button" onclick="switchTheme('dark-theme')">Dark</button>
+    <button class="theme-button" onclick="switchTheme('blue-theme')">Blue</button>
+    <button class="theme-button" onclick="switchTheme('red-theme')">Red</button>
+    <button class="theme-button" onclick="switchTheme('green-theme')">Green</button>
+    <button class="theme-button" onclick="switchTheme('grey-theme')">Grey</button>
+</div>
 
 <div class="calculator">
     <div id="display" class="display">0</div>
@@ -111,8 +149,9 @@ permalink: /Calculator/
         <button onclick="insert('0')" class="wide-button">0</button>
         <button onclick="insert('.')">.</button>
         <button onclick="calculate()">=</button>
+    </div>
 
-        <!-- Scientific Buttons -->
+    <div class="scientific-button-container button-container">
         <button onclick="insert('Math.PI')">π</button>
         <button onclick="insert('Math.E')">e</button>
         <button onclick="insert('Math.sqrt(')">√</button>
@@ -158,5 +197,10 @@ permalink: /Calculator/
         } catch (e) {
             display.innerHTML = "Error";
         }
+    }
+
+    // Switch themes
+    function switchTheme(theme) {
+        document.body.className = theme;
     }
 </script>
