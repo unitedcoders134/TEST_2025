@@ -1,6 +1,6 @@
 ---
 layout: page
-title: goblin-run
+title: Goblin Run
 permalink: /goblin-run/
 ---
 
