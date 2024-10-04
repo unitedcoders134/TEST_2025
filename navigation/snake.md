@@ -6,6 +6,20 @@ permalink: /snake/
 
 {% include nav/home.html %}
 
+<script>
+    document.addEventListener("keydown", function(event) {
+        // Prevent default scrolling behavior for arrow keys
+        if (event.keyCode >= 37 && event.keyCode <= 40) {
+            event.preventDefault();
+        }
+    });
+
+    // Your existing snake game code goes here
+</script>
+
+
+
+
 <style>
     body.light-theme {
         background-color: white;
@@ -75,8 +89,10 @@ permalink: /snake/
 
 <!-- Buttons for controlling the game -->
 <div class="button-container">
+    <button id="very-slow-btn">Very Slow Mode</button>
     <button id="slow-btn">Slow Mode</button>
     <button id="fast-btn">Fast Mode</button>
+    <button id="very-fast-btn">Very Fast Mode</button>
     <button id="wall-btn">Wall On/Off</button>
     <button id="theme-btn">Switch Theme</button>
 </div>
@@ -207,17 +223,27 @@ permalink: /snake/
     let game = setInterval(draw, speed);
 
     // Button functionality
-    document.getElementById("slow-btn").addEventListener("click", function() {
+    document.getElementById("very-slow-btn").addEventListener("click", function() {
         clearInterval(game);
         speed = 200;  // Slow mode speed
         game = setInterval(draw, speed);
     });
+    document.getElementbyId("slow-btn").addEventListener("click", function() {
+        clearInterval(game);
+        speed = 100; // Slow mode speed
+        game = setInterval(draw, speed);
+    })
 
     document.getElementById("fast-btn").addEventListener("click", function() {
         clearInterval(game);
         speed = 50;  // Fast mode speed
         game = setInterval(draw, speed);
     });
+    document.getElementById("very-fast-btn").addEventListener("click", function() {
+        clearInterval(game);
+        speed = 25;
+        game = setInterval(draw, speed); 
+    })
 
     document.getElementById("wall-btn").addEventListener("click", function() {
         wallOn = !wallOn;  // Toggle wall on/off
