@@ -109,7 +109,7 @@ hide: false
   <div class="links">
     <!-- Dropdown for Unit 1 -->
         <div class="link-container">
-      <div class="dropdown" onclick="window.location.href='/beijan25/U1';">Unit 1 — Variables and Assignments
+       <div class="dropdown" onclick="window.location.href='https://nighthawkcoders.github.io/portfolio_2025/csp/big-idea/p2/3-1';">Unit 1 — Variables and Assignments
         <div class="dropdown-content">
           <ul>
             <li>Naming: SnakeCase, Pascal Case, CamelCase</li>
@@ -122,7 +122,7 @@ hide: false
     </div>
     <!-- Dropdown for Unit 2 -->
     <div class="link-container">
-      <div class="dropdown" onclick="window.location.href='/beijan25/U2';">Unit 2 — Data Abstraction
+      <div class="dropdown" onclick="window.location.href='/TEST_2025/32hacks';">Unit 2 — Data Abstraction
         <div class="dropdown-content">
           <ul>
             <li>Learned how various data types can use abstraction for efficiency</li>
@@ -136,7 +136,7 @@ hide: false
     </div>
     <!-- Dropdown for Unit 3 -->
     <div class="link-container">
-      <div class="dropdown" onclick="window.location.href='/beijan25/U3';">Unit 3 — Mathematical Expressions
+      <div class="dropdown" onclick="window.location.href='/TEST_2025/33-35hacks';">Unit 3 — Mathematical Expressions
         <div class="dropdown-content">
           <ul>
             <li>Using arithmetic operators (+,-,*,/) to perform calculatoins</li>
@@ -148,7 +148,7 @@ hide: false
     </div>
     <!-- Dropdown for Unit 4 -->
     <div class="link-container">
-      <div class="dropdown" onclick="window.location.href='/beijan25/U4';">Unit 4 — Strings and String Operations
+      <div class="dropdown" onclick="window.location.href='https://nighthawkcoders.github.io/portfolio_2025/csp/big-idea/p2/3-1';">Unit 4 — Strings and String Operations
         <div class="dropdown-content">
           <ul>
             <li>Go over string functions in both javascript and python as follows:</li>
@@ -160,7 +160,7 @@ hide: false
     </div>
     <!-- Dropdown for Unit 5 -->
     <div class="link-container">
-      <div class="dropdown" onclick="window.location.href='/beijan25/U5';">Unit 5 — Boolean Expressions
+      <div class="dropdown" onclick="window.location.href='/33-35hacks';">Unit 5 — Boolean Expressions
         <div class="dropdown-content">
           <ul>
             <li>Learned how boolean expressions involve using loops and conditions to make decisions.</li>
@@ -173,7 +173,7 @@ hide: false
     </div>
     <!-- Dropdown for Unit 6 -->
     <div class="link-container">
-      <div class="dropdown" onclick="window.location.href='/beijan25/U6';">Unit 6 — Conditionals
+      <div class="dropdown" onclick="window.location.href='/TEST_2025/36-37hacks';">Unit 6 — Conditionals
         <div class="dropdown-content">
           <ul>
             <li>Go over If Statements, Else Statements, Javascript and Python Examples. </li>
@@ -184,7 +184,7 @@ hide: false
     </div>
     <!-- Dropdown for Unit 7 -->
     <div class="link-container">
-      <div class="dropdown" onclick="window.location.href='/beijan25/U7';">Unit 7 — Nested Conditionals
+      <div class="dropdown" onclick="window.location.href='/TEST_2025/36-37hacks';">Unit 7 — Nested Conditionals
         <div class="dropdown-content">
           <ul>
             <li>If statements, Else Statements, Nested Conditions, and Examples in both languages we're learning.</li>
@@ -195,7 +195,7 @@ hide: false
     </div>
     <!-- Dropdown for Unit 8 -->
     <div class="link-container">
-      <div class="dropdown" onclick="window.location.href='/beijan25/U8';">Unit 8 — Iterations
+      <div class="dropdown" onclick="window.location.href='/TEST_2025/38hacks';">Unit 8 — Iterations
         <div class="dropdown-content">
           <ul>
             <li>Going over Looping: For Loops, While Loops / Do-While Loops, Index Loops</li>
@@ -209,7 +209,7 @@ hide: false
     </div>
     <!-- Dropdown for Unit 9 -->
     <div class="link-container">
-      <div class="dropdown" onclick="window.location.href='/beijan25/U';">Unit 10 — Lists
+      <div class="dropdown" onclick="window.location.href='/TEST_2025/310hacks';">Unit 10 — Lists
         <div class="dropdown-content">
           <ul>
             <li>Learning how storage and maniplation of data is performed using indexing and lists.</li>
@@ -222,30 +222,7 @@ hide: false
       </div>
     </div>
     <!-- The Link for the issue -->
-    <a href="/beijan25/revtic-TT" class="main-link">Go to My Issue</a>
+    <a href="/TEST_2025/2024/10/16/megahack_IPYNB_2_.html" class="main-link">Go to My MegaHack</a>
   </div>
 </div>
 
-
-  </div><!-- from https://github.com/utterance/utterances -->
-<script src="https://utteranc.es/client.js"
-        repo="beijanm/beijan25"
-        issue-term="title"
-        label="blogpost-comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script><a class="u-url" href="/beijan25/teamteachhome" hidden></a>
-</article>
-
-
-      <footer class="site-footer">
-        
-          <span class="site-footer-owner"><a href="https://github.com/beijanm/beijan25">beijan25</a> is maintained by <a href="https://github.com/beijanm">beijanm</a>.</span>
-        
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
-      </footer>
-    </main>
-  </body>
-</html>
-</html>
